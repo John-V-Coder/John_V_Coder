@@ -7,72 +7,72 @@ const MemoryStore = createMemoryStore(session);
 const MOCK_EVENTS: Event[] = [
   {
     id: 1,
-    title: "Nairobi Music Festival",
-    description: "The biggest music festival in East Africa featuring top local and international artists.",
-    venue: "KICC, Nairobi",
-    date: new Date("2024-07-15"),
-    imageUrl: "https://images.unsplash.com/photo-1472653816316-3ad6f10a6592",
+    title: "Coachella Valley Music and Arts Festival 2024",
+    description: "One of the world's most prestigious music festivals featuring top artists, art installations, and cultural experiences.",
+    venue: "Empire Polo Club, Indio, California",
+    date: new Date("2024-04-12"),
+    imageUrl: "https://images.unsplash.com/photo-1541704328070-20bf4601ae3e",
     ticketTypes: {
-      membership: 2000,
-      regular: 3000,
-      vip: 5000,
-      vvip: 10000
+      membership: 15000,
+      regular: 25000,
+      vip: 45000,
+      vvip: 85000
     }
   },
   {
     id: 2,
-    title: "Kenya Cultural Festival",
-    description: "Experience the rich cultural heritage of Kenya through music, dance, and food.",
-    venue: "Bomas of Kenya",
-    date: new Date("2024-08-20"),
-    imageUrl: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
+    title: "Tomorrowland 2024",
+    description: "The world's largest electronic dance music festival, featuring spectacular stages and international DJs.",
+    venue: "Boom, Belgium",
+    date: new Date("2024-07-19"),
+    imageUrl: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745",
     ticketTypes: {
-      membership: 1500,
-      regular: 2500,
-      vip: 4000,
-      vvip: 8000
+      membership: 20000,
+      regular: 35000,
+      vip: 55000,
+      vvip: 95000
     }
   },
   {
     id: 3,
-    title: "Mombasa Food Festival",
-    description: "A celebration of coastal cuisine featuring local chefs, cooking demonstrations, and food tasting.",
-    venue: "Fort Jesus, Mombasa",
-    date: new Date("2024-09-10"),
-    imageUrl: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
+    title: "Ultra Music Festival Miami 2024",
+    description: "Premier electronic music festival featuring the world's top DJs and incredible production.",
+    venue: "Bayfront Park, Miami",
+    date: new Date("2024-03-22"),
+    imageUrl: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea",
     ticketTypes: {
-      membership: 1000,
-      regular: 2000,
-      vip: 3500,
-      vvip: 7000
+      membership: 18000,
+      regular: 30000,
+      vip: 50000,
+      vvip: 90000
     }
   },
   {
     id: 4,
-    title: "Maasai Mara Wildlife Festival",
-    description: "Annual wildlife photography and conservation event during the great migration.",
-    venue: "Maasai Mara National Reserve",
-    date: new Date("2024-08-05"),
-    imageUrl: "https://images.unsplash.com/photo-1516426122078-c23e76319801",
+    title: "Glastonbury Festival 2024",
+    description: "The largest greenfield music and performing arts festival in the world.",
+    venue: "Worthy Farm, Somerset, UK",
+    date: new Date("2024-06-26"),
+    imageUrl: "https://images.unsplash.com/photo-1506157786151-b8491531f063",
     ticketTypes: {
-      membership: 3000,
-      regular: 5000,
-      vip: 8000,
-      vvip: 15000
+      membership: 22000,
+      regular: 38000,
+      vip: 60000,
+      vvip: 100000
     }
   },
   {
     id: 5,
-    title: "Nairobi Tech Week",
-    description: "Kenya's largest tech event featuring workshops, keynotes, and networking opportunities.",
-    venue: "Sarit Centre, Nairobi",
-    date: new Date("2024-10-15"),
-    imageUrl: "https://images.unsplash.com/photo-1591115765373-5207764f72e7",
+    title: "EDC Las Vegas 2024",
+    description: "Electric Daisy Carnival - America's largest dance music festival with spectacular production.",
+    venue: "Las Vegas Motor Speedway",
+    date: new Date("2024-05-17"),
+    imageUrl: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7",
     ticketTypes: {
-      membership: 2500,
-      regular: 4000,
-      vip: 6000,
-      vvip: 12000
+      membership: 19000,
+      regular: 32000,
+      vip: 52000,
+      vvip: 92000
     }
   }
 ];
@@ -81,13 +81,13 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  
+
   getEvents(): Promise<Event[]>;
   getEvent(id: number): Promise<Event | undefined>;
-  
+
   createBooking(booking: InsertBooking): Promise<Booking>;
   getBookingsByUser(userId: number): Promise<Booking[]>;
-  
+
   sessionStore: session.Store;
 }
 

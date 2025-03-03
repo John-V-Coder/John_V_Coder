@@ -264,10 +264,35 @@ export default function BookingPage() {
                     </div>
 
                     <div className="bg-primary/5 p-4 rounded-lg space-y-2">
-                      <h3 className="font-semibold">Payment Information</h3>
-                      <p className="text-sm text-muted-foreground">
-                        After confirming your booking, you'll be redirected to our secure payment gateway to complete your purchase.
-                        We accept M-Pesa, credit/debit cards, and bank transfers.
+                      <h3 className="font-semibold">Payment Methods</h3>
+                      <div className="space-y-4">
+                        <div className="flex items-center space-x-2 text-sm">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/M-PESA_LOGO-01.svg" 
+                               alt="M-Pesa" 
+                               className="h-6" />
+                          <span>M-Pesa (Recommended for Kenya)</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" 
+                               alt="Visa" 
+                               className="h-6" />
+                          <span>Visa</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" 
+                               alt="Mastercard" 
+                               className="h-6" />
+                          <span>Mastercard</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
+                               alt="PayPal" 
+                               className="h-6" />
+                          <span>PayPal (International payments)</span>
+                        </div>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-4">
+                        All payments are processed securely. International payments may incur additional processing fees.
                       </p>
                     </div>
 
