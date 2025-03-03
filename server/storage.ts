@@ -32,6 +32,48 @@ const MOCK_EVENTS: Event[] = [
       vip: 4000,
       vvip: 8000
     }
+  },
+  {
+    id: 3,
+    title: "Mombasa Food Festival",
+    description: "A celebration of coastal cuisine featuring local chefs, cooking demonstrations, and food tasting.",
+    venue: "Fort Jesus, Mombasa",
+    date: new Date("2024-09-10"),
+    imageUrl: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
+    ticketTypes: {
+      membership: 1000,
+      regular: 2000,
+      vip: 3500,
+      vvip: 7000
+    }
+  },
+  {
+    id: 4,
+    title: "Maasai Mara Wildlife Festival",
+    description: "Annual wildlife photography and conservation event during the great migration.",
+    venue: "Maasai Mara National Reserve",
+    date: new Date("2024-08-05"),
+    imageUrl: "https://images.unsplash.com/photo-1516426122078-c23e76319801",
+    ticketTypes: {
+      membership: 3000,
+      regular: 5000,
+      vip: 8000,
+      vvip: 15000
+    }
+  },
+  {
+    id: 5,
+    title: "Nairobi Tech Week",
+    description: "Kenya's largest tech event featuring workshops, keynotes, and networking opportunities.",
+    venue: "Sarit Centre, Nairobi",
+    date: new Date("2024-10-15"),
+    imageUrl: "https://images.unsplash.com/photo-1591115765373-5207764f72e7",
+    ticketTypes: {
+      membership: 2500,
+      regular: 4000,
+      vip: 6000,
+      vvip: 12000
+    }
   }
 ];
 

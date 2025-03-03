@@ -47,7 +47,7 @@ export default function BookingPage() {
   const bookingMutation = useMutation({
     mutationFn: async (data: BookingFormData) => {
       if (!event) throw new Error("Event not found");
-      
+
       const totalAmount = Object.entries(data).reduce((sum, [type, quantity]) => {
         return sum + (event.ticketTypes[type as keyof typeof event.ticketTypes] * quantity);
       }, 0);
@@ -141,97 +141,144 @@ export default function BookingPage() {
                 onSubmit={form.handleSubmit((data) => bookingMutation.mutate(data))}
                 className="space-y-6"
               >
-                <div className="grid gap-4 md:grid-cols-2">
-                  <FormField
-                    control={form.control}
-                    name="membership"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Membership (KES {event.ticketTypes.membership.toLocaleString()})</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="number" 
-                            min="0"
-                            {...field}
-                            onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                <div className="space-y-6">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <FormField
+                      control={form.control}
+                      name="membership"
+                      render={({ field }) => (
+                        <FormItem className="space-y-1">
+                          <FormLabel>Membership Tickets</FormLabel>
+                          <p className="text-sm text-muted-foreground">Best value! Limited availability.</p>
+                          <div className="flex items-center justify-between text-sm mb-2">
+                            <span>Price per ticket:</span>
+                            <span className="font-semibold">KES {event.ticketTypes.membership.toLocaleString()}</span>
+                          </div>
+                          <FormControl>
+                            <Input 
+                              type="number" 
+                              min="0"
+                              {...field}
+                              onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="regular"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Regular (KES {event.ticketTypes.regular.toLocaleString()})</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="number"
-                            min="0"
-                            {...field}
-                            onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="regular"
+                      render={({ field }) => (
+                        <FormItem className="space-y-1">
+                          <FormLabel>Regular Tickets</FormLabel>
+                          <p className="text-sm text-muted-foreground">Standard admission tickets</p>
+                          <div className="flex items-center justify-between text-sm mb-2">
+                            <span>Price per ticket:</span>
+                            <span className="font-semibold">KES {event.ticketTypes.regular.toLocaleString()}</span>
+                          </div>
+                          <FormControl>
+                            <Input 
+                              type="number"
+                              min="0"
+                              {...field}
+                              onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="vip"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>VIP (KES {event.ticketTypes.vip.toLocaleString()})</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="number"
-                            min="0"
-                            {...field}
-                            onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="vip"
+                      render={({ field }) => (
+                        <FormItem className="space-y-1">
+                          <FormLabel>VIP Tickets</FormLabel>
+                          <p className="text-sm text-muted-foreground">Enhanced experience with premium seating</p>
+                          <div className="flex items-center justify-between text-sm mb-2">
+                            <span>Price per ticket:</span>
+                            <span className="font-semibold">KES {event.ticketTypes.vip.toLocaleString()}</span>
+                          </div>
+                          <FormControl>
+                            <Input 
+                              type="number"
+                              min="0"
+                              {...field}
+                              onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="vvip"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>VVIP (KES {event.ticketTypes.vvip.toLocaleString()})</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="number"
-                            min="0"
-                            {...field}
-                            onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <div className="pt-4 border-t">
-                  <div className="flex justify-between text-lg font-semibold mb-6">
-                    <span>Total Amount:</span>
-                    <span>KES {calculateTotal(form.getValues()).toLocaleString()}</span>
+                    <FormField
+                      control={form.control}
+                      name="vvip"
+                      render={({ field }) => (
+                        <FormItem className="space-y-1">
+                          <FormLabel>VVIP Tickets</FormLabel>
+                          <p className="text-sm text-muted-foreground">Ultimate luxury experience with exclusive perks</p>
+                          <div className="flex items-center justify-between text-sm mb-2">
+                            <span>Price per ticket:</span>
+                            <span className="font-semibold">KES {event.ticketTypes.vvip.toLocaleString()}</span>
+                          </div>
+                          <FormControl>
+                            <Input 
+                              type="number"
+                              min="0"
+                              {...field}
+                              onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    className="w-full"
-                    disabled={bookingMutation.isPending}
-                  >
-                    {bookingMutation.isPending ? "Processing..." : "Confirm Booking"}
-                  </Button>
+                  <div className="pt-6 border-t space-y-4">
+                    <div className="bg-muted p-4 rounded-lg space-y-2">
+                      <h3 className="font-semibold">Order Summary</h3>
+                      {Object.entries(form.getValues()).map(([type, quantity]) => {
+                        if (quantity > 0) {
+                          const price = event.ticketTypes[type as keyof typeof event.ticketTypes];
+                          return (
+                            <div key={type} className="flex justify-between text-sm">
+                              <span>{quantity}x {type.charAt(0).toUpperCase() + type.slice(1)}</span>
+                              <span>KES {(price * quantity).toLocaleString()}</span>
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
+                      <div className="pt-2 border-t mt-2">
+                        <div className="flex justify-between font-semibold">
+                          <span>Total Amount:</span>
+                          <span>KES {calculateTotal(form.getValues()).toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-primary/5 p-4 rounded-lg space-y-2">
+                      <h3 className="font-semibold">Payment Information</h3>
+                      <p className="text-sm text-muted-foreground">
+                        After confirming your booking, you'll be redirected to our secure payment gateway to complete your purchase.
+                        We accept M-Pesa, credit/debit cards, and bank transfers.
+                      </p>
+                    </div>
+
+                    <Button 
+                      type="submit" 
+                      className="w-full"
+                      disabled={bookingMutation.isPending}
+                    >
+                      {bookingMutation.isPending ? "Processing..." : "Proceed to Payment"}
+                    </Button>
+                  </div>
                 </div>
               </form>
             </Form>
